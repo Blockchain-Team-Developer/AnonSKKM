@@ -14,7 +14,10 @@ import {
   Spinner
 } from "@chakra-ui/react";
 import { DataForm } from "../types/interfaces";
-import { useEthers, useEtherBalance } from "@usedapp/core";
+import { useEthers, useEtherBalance, useContractFunction } from "@usedapp/core";
+import { utils } from "ethers";
+import { Contract } from "@ethersproject/contracts";
+import SKKMService from '../artifacts/contracts/SKKMService.sol/SKKMService.json'
 
 const FormSKKM: React.FC = () => {
   const { activateBrowserWallet, account } = useEthers();
@@ -26,6 +29,12 @@ const FormSKKM: React.FC = () => {
     reset,
     formState: { errors },
   } = useForm();
+
+  const ISKKMService = new utils.Interface(SKKMService.abi)
+  const SKKMServiceAddress = '0xE0B60f3254681Cbc0A9C6128929ecaFe1FA0982C'
+  const contract = new Contract(SKKMServiceAddress, ISKKMService)
+
+  const { state, send } = useContractFunction(contract, 'requestSKKM', { transactionName: 'requestSKKM'})
 
   const onSubmit = async (data: DataForm) => {
     setLoading(true);
@@ -39,8 +48,10 @@ const FormSKKM: React.FC = () => {
       deskripsiKegiatan: data.deskripsiKegiatan,
       jenisSKKM: data.jenisSKKM
     }
-    window.confirm(JSON.stringify(dataForm));
+    // window.confirm(JSON.stringify(dataForm));
     console.log(dataForm);
+
+    send(data.nama, data.nim, data.namaKegiatan, data.deskripsiKegiatan, data.jenisSKKM)
 
     setLoading(false);
   }

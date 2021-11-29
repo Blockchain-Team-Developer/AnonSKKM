@@ -3,3 +3,5 @@ ethereum/node_modules
 ethereum/artifacts
 
 .env
+
+frontend/artifacts
