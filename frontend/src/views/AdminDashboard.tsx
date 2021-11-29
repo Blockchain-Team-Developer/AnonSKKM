@@ -3,6 +3,7 @@ import { useEthers, useEtherBalance, useContractFunction, useContractCall, useCo
 import { utils } from "ethers";
 import { Contract } from "@ethersproject/contracts";
 import SKKMService from '../artifacts/contracts/SKKMService.sol/SKKMService.json';
+import { DataForm } from '../types/interfaces';
 
 import {
   Flex,
@@ -35,25 +36,6 @@ const AdminDashboard: React.FC = () => {
 
   const [contractCall, setContractCall] = useState([]);
 
-  const { state, send } = useContractFunction(contract, 'owner', { transactionName: 'owner'})
-
-  const fetchRequestList = () => {
-    // const temp_array: any = [];
-
-    // for(let i = 0; i < parseInt(listLength[0]._hex); i++){
-    //   const array = {
-    //     abi: ISKKMService,
-    //     address: SKKMServiceAddress,
-    //     method: "SKKM_requests_list",
-    //     args: [i],
-    //   }
-
-    //   temp_array.push(array);
-    // }
-    // setContractCall(temp_array);
-    console.log(listLength)
-  }
-
   const listLength = useContractCall({
     abi: ISKKMService,
     address: SKKMServiceAddress,
@@ -61,16 +43,26 @@ const AdminDashboard: React.FC = () => {
     args: [],
   }) ?? [];
 
+  useEffect(() => {
+    if(listLength.length != 0){
+      const temp_array: any = [];
+
+      for(let i = 0; i < parseInt(listLength[0]._hex); i++){
+        const array = {
+          abi: ISKKMService,
+          address: SKKMServiceAddress,
+          method: "SKKM_requests_list",
+          args: [i],
+        }
+
+        temp_array.push(array);
+      }
+      setContractCall(temp_array);
+    }
+  }, [listLength])
+
   const hasil = useContractCalls(contractCall) ?? [];
-
-  // useEffect(() => {
-  //   if(listLength){
-  //     fetchRequestList()
-  //   }
-  //   console.log(listLength)
-  // }, [listLength])
   
-
   const data = [
     ["Jane Cooper Krisna Cahyadi", "34242", "jane.cooper@student.umn.ac.id"],
     [
@@ -116,7 +108,7 @@ const AdminDashboard: React.FC = () => {
   return (
     <Flex py={2} px={16} flexDirection="column">
       <Heading my={4}>Admin Dashboard</Heading>
-      <Button onClick={fetchRequestList}>Test</Button>
+      <Button>Test</Button>
       <Button onClick={() => {console.log(hasil)}}>Test2</Button>
       <Box my={6} w="100%">
         <MUIDataTable
