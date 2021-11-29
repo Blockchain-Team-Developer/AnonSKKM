@@ -7,7 +7,7 @@ import SKKMService from '../artifacts/contracts/SKKMService.sol/SKKMService.json
 import {
   Flex,
   Heading,
-  Button
+  Button,
   Text,
   Switch,
   Box
@@ -33,32 +33,26 @@ const AdminDashboard: React.FC = () => {
   const SKKMServiceAddress = '0xF3f6075Ba946918Be0BA9C1b5C4B4921Fa4fb66B'
   const contract = new Contract(SKKMServiceAddress, ISKKMService)
 
-  const [_listLength, setListLength] = useState(0);
+  const [contractCall, setContractCall] = useState([]);
 
   const { state, send } = useContractFunction(contract, 'owner', { transactionName: 'owner'})
 
   const fetchRequestList = () => {
-    setListLength(parseInt(listLength[0]._hex))
-  }
+    // const temp_array: any = [];
 
-  for(let i = 0; i < _listLength; i++){
-    
-  }
+    // for(let i = 0; i < parseInt(listLength[0]._hex); i++){
+    //   const array = {
+    //     abi: ISKKMService,
+    //     address: SKKMServiceAddress,
+    //     method: "SKKM_requests_list",
+    //     args: [i],
+    //   }
 
-  const hasil = useContractCalls([
-    {
-      abi: ISKKMService,
-      address: SKKMServiceAddress,
-      method: "SKKM_requests_list",
-      args: [0],
-    },
-    {
-      abi: ISKKMService,
-      address: SKKMServiceAddress,
-      method: "SKKM_requests_list",
-      args: [1],
-    }
-  ]) ?? [];
+    //   temp_array.push(array);
+    // }
+    // setContractCall(temp_array);
+    console.log(listLength)
+  }
 
   const listLength = useContractCall({
     abi: ISKKMService,
@@ -66,6 +60,17 @@ const AdminDashboard: React.FC = () => {
     method: "getListLength",
     args: [],
   }) ?? [];
+
+  const hasil = useContractCalls(contractCall) ?? [];
+
+  // useEffect(() => {
+  //   if(listLength){
+  //     fetchRequestList()
+  //   }
+  //   console.log(listLength)
+  // }, [listLength])
+  
+
   const data = [
     ["Jane Cooper Krisna Cahyadi", "34242", "jane.cooper@student.umn.ac.id"],
     [
@@ -112,6 +117,7 @@ const AdminDashboard: React.FC = () => {
     <Flex py={2} px={16} flexDirection="column">
       <Heading my={4}>Admin Dashboard</Heading>
       <Button onClick={fetchRequestList}>Test</Button>
+      <Button onClick={() => {console.log(hasil)}}>Test2</Button>
       <Box my={6} w="100%">
         <MUIDataTable
           title={"SKKM Request List"}
