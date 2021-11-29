@@ -46,7 +46,7 @@ contract SKKMService {
         string memory _deskripsiKegiatan,
         SKKM _jenisSKKM) 
         public returns(string memory message){
-            
+        
         SKKM_request memory temp_struct;
         
         temp_struct.studentAddress = msg.sender;
@@ -76,7 +76,7 @@ contract SKKMService {
         SKKM_requests_history.push(temp_struct);
         
         for (uint i = _index; i < SKKM_requests_list.length - 1; i++) {
-          SKKM_requests_list[i] = SKKM_requests_list[i + 1];
+            SKKM_requests_list[i] = SKKM_requests_list[i + 1];
         }
         
         delete SKKM_requests_list[SKKM_requests_list.length - 1];
