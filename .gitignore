@@ -1,5 +1,7 @@
 ethereum/node_modules
+frontend/node_modules
 
 ethereum/artifacts
 
 .env
+frontend/.env
