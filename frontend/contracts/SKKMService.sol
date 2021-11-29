@@ -80,8 +80,11 @@ contract SKKMService {
         temp_struct.approved = _approved;
         
         SKKM_requests_history.push(temp_struct);
-        skkmNFT.mintNFT(SKKM_requests_list[_index].studentAddress, _metadataURL);
         
+        if(_approved){
+            skkmNFT.mintNFT(SKKM_requests_list[_index].studentAddress, _metadataURL);
+        }
+
         for (uint i = _index; i < SKKM_requests_list.length - 1; i++) {
             SKKM_requests_list[i] = SKKM_requests_list[i + 1];
         }
