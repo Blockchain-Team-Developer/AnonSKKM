@@ -5,3 +5,5 @@ ethereum/artifacts
 
 .env
 frontend/.env
+
+frontend/artifacts
