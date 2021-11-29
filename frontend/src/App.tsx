@@ -10,9 +10,7 @@ import {
   Stack,
   Heading,
   Flex,
-  Text,
-  Button,
-  Grid 
+  Text
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import FormSKKM from "./views/FormSKKM";

@@ -4,23 +4,21 @@ import {
   Flex,
   Input,
   InputGroup,
+  Select,
   Button,
   Heading,
-  InputLeftAddon,
-  InputRightElement,
+  FormLabel,
   FormControl,
   FormErrorMessage,
-  Divider,
   Spacer,
-  Spinner,
-  Alert,
-  AlertIcon,
-  useMediaQuery
+  Spinner
 } from "@chakra-ui/react";
-import { Link, useLocation } from "react-router-dom";
 import { DataForm } from "../types/interfaces";
+import { useEthers, useEtherBalance } from "@usedapp/core";
 
 const FormSKKM: React.FC = () => {
+  const { activateBrowserWallet, account } = useEthers();
+  const etherBalance = useEtherBalance(account);
   const [loading, setLoading] = useState(false);
   const {
     register,
@@ -32,7 +30,17 @@ const FormSKKM: React.FC = () => {
   const onSubmit = async (data: DataForm) => {
     setLoading(true);
 
-    window.confirm(JSON.stringify(data));
+    // reset();
+    const dataForm = { 
+      address: account,
+      nama: data.nama,
+      nim: data.nim,
+      namaKegiatan: data.namaKegiatan,
+      deskripsiKegiatan: data.deskripsiKegiatan,
+      jenisSKKM: data.jenisSKKM
+    }
+    window.confirm(JSON.stringify(dataForm));
+    console.log(dataForm);
 
     setLoading(false);
   }
@@ -42,21 +50,18 @@ const FormSKKM: React.FC = () => {
       <Heading my={4}>Form SKKM</Heading>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl isInvalid={errors.nama}>
-          <Heading as='h4' size="md">Nama Mahasiswa</Heading>
-          <InputGroup>
+          <FormLabel>Nama Mahasiswa</FormLabel>
             <Input
               {...register("nama", {
                 required: "Isi nama kamu"
               })}
             />
-          </InputGroup>
           <FormErrorMessage>
             {errors.nama && errors.nama.message}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={errors.nim} my={6}>
-          <Heading as='h4' size="md">NIM</Heading>
-          <InputGroup>
+          <FormLabel>NIM</FormLabel>
             <Input
               {...register("nim", {
                 required: "Isi NIM kamu",
@@ -70,46 +75,45 @@ const FormSKKM: React.FC = () => {
                 },
               })}
             />
-          </InputGroup>
           <FormErrorMessage>
             {errors.nim && errors.nim.message}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={errors.namaKegiatan}>
-          <Heading as='h4' size="md">Nama Kegiatan</Heading>
-          <InputGroup>
+          <FormLabel>Nama Kegiatan</FormLabel>
             <Input
               {...register("namaKegiatan", {
                 required: "Isi nama kegiatan kamu"
               })}
             />
-          </InputGroup>
           <FormErrorMessage>
             {errors.namaKegiatan && errors.namaKegiatan.message}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={errors.deskripsiKegiatan} my={6}>
-          <Heading as='h4' size="md">Deskripsi Kegiatan</Heading>
-          <InputGroup>
+          <FormLabel>Deskripsi Kegiatan</FormLabel>
             <Input
               {...register("deskripsiKegiatan", {
                 required: "Isi deskripsi kegiatan kamu"
               })}
             />
-          </InputGroup>
           <FormErrorMessage>
             {errors.deskripsiKegiatan && errors.deskripsiKegiatan.message}
           </FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={errors.jenisSKKM}>
-          <Heading as='h4' size="md">Jenis SKKM</Heading>
-          <InputGroup>
-            <Input
-              {...register("jenisSKKM", {
-                required: "Isi jenis SKKM kamu"
-              })}
-            />
-          </InputGroup>
+          <FormLabel>Jenis SKKM</FormLabel>
+          <Select
+            placeholder="Jenis SKKM yang diajukan"
+            {...register("jenisSKKM", {
+              required: "Isi jenis SKKM yang diajukan",
+            })}
+          >
+            <option value='0'>Ilmiah dan Penalaran</option>
+            <option value='1'>Bakat dan Minat</option>
+            <option value='2'>Organisasi dan Pengembangan Kepribadian</option>
+            <option value='3'>Pengabdian Masyarakat</option>
+          </Select>
           <FormErrorMessage>
             {errors.jenisSKKM && errors.jenisSKKM.message}
           </FormErrorMessage>

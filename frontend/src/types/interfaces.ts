@@ -1,6 +1,6 @@
 export interface DataForm {
   address: string
-  studentName: string;
+  nama: string;
   nim: string;
   namaKegiatan: string;
   deskripsiKegiatan: string;
