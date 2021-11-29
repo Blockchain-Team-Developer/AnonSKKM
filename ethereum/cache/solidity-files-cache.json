@@ -1,10 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\contracts\\MyNFT.sol": {
-      "lastModificationDate": 1638153245160,
-      "contentHash": "d1350569b443e5d2660fc428b6f71e22",
-      "sourceName": "contracts/MyNFT.sol",
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\contracts\\SKKMNFT.sol": {
+      "lastModificationDate": 1638175537643,
+      "contentHash": "8c1d8e48b279547219767eec997703c6",
+      "sourceName": "contracts/SKKMNFT.sol",
       "solcConfig": {
         "version": "0.8.0",
         "settings": {
@@ -38,11 +38,11 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "MyNFT"
+        "SKKMNFT"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
-      "lastModificationDate": 1638155318834,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\ERC721.sol": {
+      "lastModificationDate": 1638148532882,
       "contentHash": "a4f6dccf3f15b6844e357f737a572388",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
@@ -84,8 +84,8 @@
         "ERC721"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
-      "lastModificationDate": 1638155317821,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
+      "lastModificationDate": 1638148532532,
       "contentHash": "b7811964d33f23b2d45ed3ebb76a4548",
       "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
       "solcConfig": {
@@ -119,8 +119,8 @@
         "Counters"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
-      "lastModificationDate": 1638155319963,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
+      "lastModificationDate": 1638148533259,
       "contentHash": "4fe56b59ced59d87df6b796758f62895",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -156,8 +156,8 @@
         "Ownable"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\ERC721URIStorage.sol": {
-      "lastModificationDate": 1638155319048,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\ERC721URIStorage.sol": {
+      "lastModificationDate": 1638148532931,
       "contentHash": "94da923c22e9773af388607307182c80",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
       "solcConfig": {
@@ -193,8 +193,8 @@
         "ERC721URIStorage"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721.sol": {
-      "lastModificationDate": 1638155319698,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721.sol": {
+      "lastModificationDate": 1638148533160,
       "contentHash": "53919d6975f2c0f3dffee5e3a1064116",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
@@ -230,8 +230,8 @@
         "IERC721"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
-      "lastModificationDate": 1638155319742,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
+      "lastModificationDate": 1638148533191,
       "contentHash": "9a367cecca6fed80a3e975b7e6b3bd5c",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
@@ -265,8 +265,8 @@
         "IERC721Receiver"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\IERC721Metadata.sol": {
-      "lastModificationDate": 1638155319727,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\extensions\\IERC721Metadata.sol": {
+      "lastModificationDate": 1638148533179,
       "contentHash": "8aa69ca8424167555baaaa9f607801db",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
@@ -302,8 +302,8 @@
         "IERC721Metadata"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\Address.sol": {
-      "lastModificationDate": 1638155317600,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\Address.sol": {
+      "lastModificationDate": 1638148532294,
       "contentHash": "c5f6c4e4df069c789e7d84b4c3011913",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
       "solcConfig": {
@@ -337,8 +337,8 @@
         "Address"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
-      "lastModificationDate": 1638155317813,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1638148532522,
       "contentHash": "851485d5b925529b1a2f34a0be077891",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -372,8 +372,8 @@
         "Context"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
-      "lastModificationDate": 1638155320217,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
+      "lastModificationDate": 1638148533333,
       "contentHash": "62142442bed149f965c5ed971fae4182",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -407,8 +407,8 @@
         "Strings"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
-      "lastModificationDate": 1638155318468,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
+      "lastModificationDate": 1638148532735,
       "contentHash": "a9a5319dff9088c6ffe757ea1c2a6729",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
@@ -444,8 +444,8 @@
         "ERC165"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
-      "lastModificationDate": 1638155319568,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
+      "lastModificationDate": 1638148533085,
       "contentHash": "9a04322bb8f6b8f2767d8358d1d2537b",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
@@ -479,8 +479,8 @@
         "IERC165"
       ]
     },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\contracts\\SKKMService.sol": {
-      "lastModificationDate": 1638168045003,
+    "C:\\Matthew\\Programming\\Dapp\\NFT-SKKM-FIX\\ethereum\\contracts\\SKKMService.sol": {
+      "lastModificationDate": 1638175226386,
       "contentHash": "f44a42f63d0a0973fe36820b556618dd",
       "sourceName": "contracts/SKKMService.sol",
       "solcConfig": {
@@ -514,46 +514,6 @@
       ],
       "artifacts": [
         "SKKMService"
-      ]
-    },
-    "C:\\Willy\\Visual Studio Code\\Training\\NFT-SKKM-FIX\\ethereum\\contracts\\SKKMNFT.sol": {
-      "lastModificationDate": 1638167857170,
-      "contentHash": "b9898a9f742d45f0097f27441273aa39",
-      "sourceName": "contracts/SKKMNFT.sol",
-      "solcConfig": {
-        "version": "0.8.0",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/utils/Counters.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "SKKMNFT"
       ]
     }
   }
