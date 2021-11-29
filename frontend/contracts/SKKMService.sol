@@ -43,6 +43,14 @@ contract SKKMService {
     
     request_history[] public SKKM_requests_history;
     
+    function getListLength() public view returns(uint){
+        return SKKM_requests_list.length;
+    }
+
+    function getHistoryLength() public view returns(uint){
+        return SKKM_requests_history.length;
+    }
+
     function requestSKKM(
         string memory _studentName,
         string memory _NIM,
@@ -64,7 +72,6 @@ contract SKKMService {
         
         return "Request telah disubmit, silahkan menunggu approval dari Admin";
     }
-    
     
     function approveSKKM(uint _index, bool _approved, string memory _metadataURL) public onlyOwner{
         SKKMNFT skkmNFT = SKKMNFT(nftAddress);

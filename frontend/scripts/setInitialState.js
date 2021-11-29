@@ -48,4 +48,4 @@ async function addContractCaller(SKKMServiceAddress) {
       })
   }
 
-addContractCaller("0x3B3281636c400A68C4243B8196ba2Fd4C20dCfd2")
+addContractCaller("0xF3f6075Ba946918Be0BA9C1b5C4B4921Fa4fb66B")
