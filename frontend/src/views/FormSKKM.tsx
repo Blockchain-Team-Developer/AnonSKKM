@@ -57,7 +57,7 @@ const FormSKKM: React.FC = () => {
   }
 
   return (
-    <Flex p={6} flexDirection="column">
+    <Flex py={2} px={16} flexDirection="column">
       <Heading my={4}>Form SKKM</Heading>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl isInvalid={errors.nama}>
