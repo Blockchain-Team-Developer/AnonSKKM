@@ -7,14 +7,24 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract MyNFT is ERC721URIStorage, Ownable {
+contract SKKMNFT is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
+    address public skkmServiceContractAddress;
 
-    constructor() ERC721("MyNFT", "NFT") {}
+    constructor() ERC721("SKKMNFT", "SKKM") {}
+
+    modifier onlyContractCaller {
+        require(msg.sender == skkmServiceContractAddress);
+        _;
+    }
+
+    function addContractCaller(address _skkmServiceContractAddress) public onlyOwner{
+        skkmServiceContractAddress = _skkmServiceContractAddress;
+    }
 
     function mintNFT(address recipient, string memory tokenURI)
-        public onlyOwner
+        public onlyContractCaller
         returns (uint256)
     {
         _tokenIds.increment();
