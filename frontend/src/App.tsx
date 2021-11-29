@@ -72,10 +72,10 @@ function App(props:any) {
           </Flex>
         </Box>
       </Flex>
-      { account ? ( account === process.env.REACT_APP_OWNER_WALLET_ADDRESS ? (<AdminDashboard/>) : (<FormSKKM/>)) : ( <HomeLayout/> ) }
+      {/* { account ? ( account === process.env.REACT_APP_OWNER_WALLET_ADDRESS ? (<AdminDashboard/>) : (<FormSKKM/>)) : ( <HomeLayout/> ) } */}
       {/* <FormSKKM/> */}
       {/* <HomeLayout/> */}
-      {/* <AdminDashboard/> */}
+      <AdminDashboard/>
     </ChakraProvider>
   );
 }
