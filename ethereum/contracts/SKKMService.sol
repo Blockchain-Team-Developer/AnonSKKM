@@ -1,11 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import 'contracts/MyNFT.sol';
+
 contract SKKMService {
     address public owner;
+    address public nftAddress;
+    string public metadataURL;
     
-    constructor(){
+    constructor(address _nftAddress){
         owner = msg.sender;
+        nftAddress = _nftAddress;
     }
     
     modifier onlyOwner(){
@@ -14,8 +19,7 @@ contract SKKMService {
     }
     
     enum SKKM { IP, BM, OPK, PM }
-    
-    
+
     struct SKKM_request {
         address studentAddress;
         string studentName;
@@ -62,7 +66,9 @@ contract SKKMService {
     }
     
     
-    function approveSKKM(uint _index, bool _approved) public onlyOwner{
+    function approveSKKM(uint _index, bool _approved, string memory _metadataURL) public onlyOwner{
+        MyNFT myNFT = MyNFT(nftAddress);
+
         request_history memory temp_struct;
         
         temp_struct.studentAddress = SKKM_requests_list[_index].studentAddress;
@@ -74,6 +80,7 @@ contract SKKMService {
         temp_struct.approved = _approved;
         
         SKKM_requests_history.push(temp_struct);
+        myNFT.mintNFT(SKKM_requests_list[_index].studentAddress, _metadataURL);
         
         for (uint i = _index; i < SKKM_requests_list.length - 1; i++) {
           SKKM_requests_list[i] = SKKM_requests_list[i + 1];
