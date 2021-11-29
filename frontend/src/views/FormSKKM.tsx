@@ -17,7 +17,7 @@ import { DataForm } from "../types/interfaces";
 import { useEthers, useEtherBalance, useContractFunction } from "@usedapp/core";
 import { utils } from "ethers";
 import { Contract } from "@ethersproject/contracts";
-import SKKMService from '../artifacts/contracts/SKKMService.sol/SKKMService.json'
+import SKKMService from '../artifacts/contracts/SKKMService.sol/SKKMService.json';
 
 const FormSKKM: React.FC = () => {
   const { activateBrowserWallet, account } = useEthers();
