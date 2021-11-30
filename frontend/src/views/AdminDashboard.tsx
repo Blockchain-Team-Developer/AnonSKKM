@@ -4,6 +4,7 @@ import { utils } from "ethers";
 import { Contract } from "@ethersproject/contracts";
 import SKKMService from '../artifacts/contracts/SKKMService.sol/SKKMService.json';
 import { DataForm } from '../types/interfaces';
+import { dataApprove } from "../types/enums";
 
 import {
   Flex,
@@ -65,12 +66,16 @@ const AdminDashboard: React.FC = () => {
   const tempData: any = []
   const data: any = []
 
-  const approveThis = (index: any, approve: boolean) => {
-    console.log(index, approve);
+  const approveThis = (index: number, approve: boolean, jenisSKKM: number) => {
+    let metadataURL: any = dataApprove[jenisSKKM]; 
+
+    console.log(index, approve, metadataURL);
   }
 
-  const rejectThis = (index:any, approve: boolean) => {
-    console.log(index, approve);
+  const rejectThis = (index: number, approve: boolean, jenisSKKM: number) => {
+    let metadataURL: any = dataApprove[jenisSKKM];  
+
+    console.log(index, approve, metadataURL);
   }
 
   const tableColumns = [
@@ -88,8 +93,8 @@ const AdminDashboard: React.FC = () => {
       options: {
         customBodyRender: (value:any, tableMeta:any) => (
           <Flex flexDirection="row">
-            <Button colorScheme="teal" size="sm" onClick={() => approveThis(tableMeta.rowData[0], true)} mr={4}>Approve</Button>
-            <Button colorScheme="red" size="sm" onClick={() => rejectThis(tableMeta.rowData[0], false)}>Reject</Button>
+            <Button colorScheme="teal" size="sm" onClick={() => approveThis(tableMeta.rowData[0], true, tableMeta.rowData[5])} mr={4}>Approve</Button>
+            <Button colorScheme="red" size="sm" onClick={() => rejectThis(tableMeta.rowData[0], false, tableMeta.rowData[5])}>Reject</Button>
           </Flex>
         )
       }
