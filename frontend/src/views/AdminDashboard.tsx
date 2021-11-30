@@ -44,72 +44,39 @@ const AdminDashboard: React.FC = () => {
   }) ?? [];
 
   useEffect(() => {
+    const temp_array: any = [];
     if(listLength.length != 0){
-      const temp_array: any = [];
-
+     
       for(let i = 0; i < parseInt(listLength[0]._hex); i++){
-        const array = {
+        temp_array.push({
           abi: ISKKMService,
           address: SKKMServiceAddress,
           method: "SKKM_requests_list",
           args: [i],
-        }
-
-        temp_array.push(array);
+        })
       }
-      setContractCall(temp_array);
+      setContractCall(temp_array)
     }
   }, [listLength])
 
   const hasil = useContractCalls(contractCall) ?? [];
-  
-  const data = [
-    ["Jane Cooper Krisna Cahyadi", "34242", "jane.cooper@student.umn.ac.id"],
-    [
-      "Maximilliano Adrian Stefan Gabrielsar",
-      "23231",
-      "jane.cooper@student.umn.ac.id",
-    ],
-    ["Carlos Cooper", "12121", "jane.cooper@student.umn.ac.id"],
-    ["Jane Dharmawan Cooper", "56565", "jane.cooper@student.umn.ac.id"],
-    ["Jane Cooper June Caaper", "35353", "jane.cooper@student.umn.ac.id"],
-    [
-      "Jane Cooper Krisna Finantyo Chandra",
-      "35353",
-      "jane.cooper@student.umn.ac.id",
-    ],
-    ["Jane Dharmawan Cooper", "56565", "jane.cooper@student.umn.ac.id"],
-    ["Jane Cooper June Caaper", "35353", "jane.cooper@student.umn.ac.id"],
-    [
-      "Jane Cooper Krisna Finantyo Chandra",
-      "35353",
-      "jane.cooper@student.umn.ac.id",
-    ],
-    ["William Cooper", "34242", "jane.cooper@student.umn.ac.id"],
-    [
-      "Jane Cooper Krisna Finantyo Chandra",
-      "35353",
-      "jane.cooper@student.umn.ac.id",
-    ],
-    ["Jane Dharmawan Cooper", "56565", "jane.cooper@student.umn.ac.id"],
-    ["Jane Cooper June Caaper", "35353", "jane.cooper@student.umn.ac.id"],
-    [
-      "Jane Cooper Krisna Finantyo Chandra",
-      "35353",
-      "jane.cooper@student.umn.ac.id",
-    ],
-    ["Jane Bonifasius", "23231", "jane.cooper@student.umn.ac.id"],
-    ["Jane Cooper", "12121", "jane.cooper@student.umn.ac.id"],
-    ["Gabrielsar Cooper", "56565", "jane.cooper@student.umn.ac.id"],
-  ];
+ 
+  const data: any = []
 
-  const columns = ["Nama", "NIM", "Email"];
+  const columns = ["Nama", "NIM", "Acara", "Deskripsi Acara", "Jenis SKKM"];
+
+  if(hasil[0] !== undefined){
+    hasil.map((h: any) => {
+      data.push([h[1], h[2], h[3], h[4], h[5]])
+    })
+  }
+  else{
+    console.log(false)
+  }
 
   return (
     <Flex py={2} px={16} flexDirection="column">
       <Heading my={4}>Admin Dashboard</Heading>
-      <Button>Test</Button>
-      <Button onClick={() => {console.log(hasil)}}>Test2</Button>
       <Box my={6} w="100%">
         <MUIDataTable
           title={"SKKM Request List"}
