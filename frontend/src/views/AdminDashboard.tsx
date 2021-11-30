@@ -62,6 +62,7 @@ const AdminDashboard: React.FC = () => {
 
   const hasil = useContractCalls(contractCall) ?? [];
 
+  const tempData: any = []
   const data: any = []
 
   const approveThis = (index: any, approve: boolean) => {
@@ -72,15 +73,23 @@ const AdminDashboard: React.FC = () => {
     console.log(index, approve);
   }
 
-  const tableColumns = ["Nama", "NIM", "Acara", "Deskripsi Acara", "Jenis SKKM",
+  const tableColumns = [
+    {
+      name: "Index",
+      label: "Index",
+      options: {
+        display: false
+      }
+    }
+    ,"Nama", "NIM", "Acara", "Deskripsi Acara", "Jenis SKKM",
     {
       name: "Is Approve",
       label: "Is Approve",
       options: {
         customBodyRender: (value:any, tableMeta:any) => (
           <Flex flexDirection="row">
-            <Button colorScheme="teal" size="sm" onClick={() => approveThis(tableMeta.rowIndex, true)} mr={4}>Approve</Button>
-            <Button colorScheme="red" size="sm" onClick={() => rejectThis(tableMeta.rowIndex, false)}>Reject</Button>
+            <Button colorScheme="teal" size="sm" onClick={() => approveThis(tableMeta.rowData[0], true)} mr={4}>Approve</Button>
+            <Button colorScheme="red" size="sm" onClick={() => rejectThis(tableMeta.rowData[0], false)}>Reject</Button>
           </Flex>
         )
       }
@@ -88,9 +97,10 @@ const AdminDashboard: React.FC = () => {
   ];
 
   if(hasil[0] !== undefined){
-    hasil.map((h: any) => {
-      data.push([h[1], h[2], h[3], h[4], h[5]])
+    hasil.map((h: any, index:any) => {
+      data.push([index, h[1], h[2], h[3], h[4], h[5]])
     })
+    console.log(data)
   }
   else{
     console.log(false)
