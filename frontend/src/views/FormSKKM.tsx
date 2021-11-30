@@ -39,7 +39,6 @@ const FormSKKM: React.FC = () => {
   const onSubmit = async (data: DataForm) => {
     setLoading(true);
 
-    // reset();
     const dataForm = { 
       address: account,
       nama: data.nama,
@@ -48,11 +47,11 @@ const FormSKKM: React.FC = () => {
       deskripsiKegiatan: data.deskripsiKegiatan,
       jenisSKKM: data.jenisSKKM
     }
-    // window.confirm(JSON.stringify(dataForm));
     console.log(dataForm);
 
     send(data.nama, data.nim, data.namaKegiatan, data.deskripsiKegiatan, data.jenisSKKM)
 
+    reset();
     setLoading(false);
   }
 

@@ -73,9 +73,6 @@ function App(props:any) {
         </Box>
       </Flex>
       { account ? ( account === process.env.REACT_APP_OWNER_WALLET_ADDRESS ? (<AdminDashboard/>) : (<FormSKKM/>)) : ( <HomeLayout/> ) }
-      {/* <FormSKKM/> */}
-      {/* <HomeLayout/> */}
-      {/* <AdminDashboard/> */}
     </ChakraProvider>
   );
 }

@@ -72,16 +72,12 @@ const AdminDashboard: React.FC = () => {
 
   const approveThis = (index: number, approve: boolean, jenisSKKM: number) => {
     let metadataURL: any = dataApprove[jenisSKKM]; 
-
-    //window.alert(`${index}, ${approve}, ${metadataURL}`);
-
+    
     send(index, approve, metadataURL)
   }
 
   const rejectThis = (index: number, approve: boolean, jenisSKKM: number) => {
     let metadataURL: any = dataApprove[jenisSKKM];  
-
-    // await window.alert(`${index}, ${approve}, ${metadataURL}`);
 
     send(index, approve, metadataURL)
   }
