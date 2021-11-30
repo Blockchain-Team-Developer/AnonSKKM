@@ -11,6 +11,7 @@ import {
   Button,
   Text,
   Switch,
+  Spacer,
   Box
 } from "@chakra-ui/react";
 import MUIDataTable from "mui-datatables";
@@ -46,7 +47,7 @@ const AdminDashboard: React.FC = () => {
   useEffect(() => {
     const temp_array: any = [];
     if(listLength.length != 0){
-     
+    
       for(let i = 0; i < parseInt(listLength[0]._hex); i++){
         temp_array.push({
           abi: ISKKMService,
@@ -60,10 +61,23 @@ const AdminDashboard: React.FC = () => {
   }, [listLength])
 
   const hasil = useContractCalls(contractCall) ?? [];
- 
+
   const data: any = []
 
-  const columns = ["Nama", "NIM", "Acara", "Deskripsi Acara", "Jenis SKKM", "Is Approve"];
+  const tableColumns = ["Nama", "NIM", "Acara", "Deskripsi Acara", "Jenis SKKM",
+    {
+      name: "Is Approve",
+      label: "Is Approve",
+      options: {
+        customBodyRender: (value:any, tableMeta:any) => (
+          <Flex flexDirection="row">
+            <Button colorScheme="teal" size="sm" mr={4}>Approve</Button>
+            <Button colorScheme="red" size="sm">Reject</Button>
+          </Flex>
+        )
+      }
+    }
+  ];
 
   if(hasil[0] !== undefined){
     hasil.map((h: any) => {
@@ -81,7 +95,7 @@ const AdminDashboard: React.FC = () => {
         <MUIDataTable
           title={"SKKM Request List"}
           data={data}
-          columns={columns}
+          columns={tableColumns}
           options={{
             selectableRows: "none",
             rowsPerPage: 15,
