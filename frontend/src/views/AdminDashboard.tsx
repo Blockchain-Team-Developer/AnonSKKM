@@ -64,6 +64,14 @@ const AdminDashboard: React.FC = () => {
 
   const data: any = []
 
+  const approveThis = (index: any, approve: boolean) => {
+    console.log(index, approve);
+  }
+
+  const rejectThis = (index:any, approve: boolean) => {
+    console.log(index, approve);
+  }
+
   const tableColumns = ["Nama", "NIM", "Acara", "Deskripsi Acara", "Jenis SKKM",
     {
       name: "Is Approve",
@@ -71,8 +79,8 @@ const AdminDashboard: React.FC = () => {
       options: {
         customBodyRender: (value:any, tableMeta:any) => (
           <Flex flexDirection="row">
-            <Button colorScheme="teal" size="sm" mr={4}>Approve</Button>
-            <Button colorScheme="red" size="sm">Reject</Button>
+            <Button colorScheme="teal" size="sm" onClick={() => approveThis(tableMeta.rowIndex, true)} mr={4}>Approve</Button>
+            <Button colorScheme="red" size="sm" onClick={() => rejectThis(tableMeta.rowIndex, false)}>Reject</Button>
           </Flex>
         )
       }
