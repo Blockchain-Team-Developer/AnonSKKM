@@ -19,6 +19,9 @@ import MUIDataTable from "mui-datatables";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
+
+
+
 const colorTheme = createMuiTheme({
   palette: {
     primary: {
@@ -31,10 +34,11 @@ const colorTheme = createMuiTheme({
 });
 
 const AdminDashboard: React.FC = () => {
-
   const ISKKMService = new utils.Interface(SKKMService.abi)
   const SKKMServiceAddress = '0xF3f6075Ba946918Be0BA9C1b5C4B4921Fa4fb66B'
   const contract = new Contract(SKKMServiceAddress, ISKKMService)
+
+  const { state, send } = useContractFunction(contract, 'approveSKKM', { transactionName: 'approveSKKM'})
 
   const [contractCall, setContractCall] = useState([]);
 
@@ -69,13 +73,17 @@ const AdminDashboard: React.FC = () => {
   const approveThis = (index: number, approve: boolean, jenisSKKM: number) => {
     let metadataURL: any = dataApprove[jenisSKKM]; 
 
-    console.log(index, approve, metadataURL);
+    //window.alert(`${index}, ${approve}, ${metadataURL}`);
+
+    send(index, approve, metadataURL)
   }
 
   const rejectThis = (index: number, approve: boolean, jenisSKKM: number) => {
     let metadataURL: any = dataApprove[jenisSKKM];  
 
-    console.log(index, approve, metadataURL);
+    // await window.alert(`${index}, ${approve}, ${metadataURL}`);
+
+    send(index, approve, metadataURL)
   }
 
   const tableColumns = [
