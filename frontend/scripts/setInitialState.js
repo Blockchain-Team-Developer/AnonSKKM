@@ -7,7 +7,7 @@ const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(DEV_API_URL);
 
 const contract = require("../src/artifacts/contracts/SKKMNFT.sol/SKKMNFT.json");
-const contractAddress = "0x04117F34aC5BABcDe588B1fF868c7e30D082806d";
+const contractAddress = "0xD19Dd20c98Ffa5466e3a0B48d07b1784d4fE0a69";
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
 async function addContractCaller(SKKMServiceAddress) {
@@ -48,4 +48,4 @@ async function addContractCaller(SKKMServiceAddress) {
       })
   }
 
-addContractCaller("0xF3f6075Ba946918Be0BA9C1b5C4B4921Fa4fb66B")
+addContractCaller("0xCC8048eF226eb2383B08949F752Cf31932d487cc")

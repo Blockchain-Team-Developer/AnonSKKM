@@ -31,7 +31,7 @@ const FormSKKM: React.FC = () => {
   } = useForm();
 
   const ISKKMService = new utils.Interface(SKKMService.abi)
-  const SKKMServiceAddress = '0xF3f6075Ba946918Be0BA9C1b5C4B4921Fa4fb66B'
+  const SKKMServiceAddress = '0xCC8048eF226eb2383B08949F752Cf31932d487cc'
   const contract = new Contract(SKKMServiceAddress, ISKKMService)
 
   const { state, send } = useContractFunction(contract, 'requestSKKM', { transactionName: 'requestSKKM'})

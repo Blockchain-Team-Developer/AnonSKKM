@@ -2,7 +2,7 @@ const hre = require("hardhat")
 
 async function main(){
     const SKKMService = await hre.ethers.getContractFactory("SKKMService")
-    const skkmService = await SKKMService.deploy('0xE68d5779409c45bDA72aE72E7992dc6476F2D693');
+    const skkmService = await SKKMService.deploy('0xD19Dd20c98Ffa5466e3a0B48d07b1784d4fE0a69');
 
     await skkmService.deployed()
 
