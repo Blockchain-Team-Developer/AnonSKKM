@@ -63,7 +63,7 @@ const AdminDashboard: React.FC = () => {
  
   const data: any = []
 
-  const columns = ["Nama", "NIM", "Acara", "Deskripsi Acara", "Jenis SKKM"];
+  const columns = ["Nama", "NIM", "Acara", "Deskripsi Acara", "Jenis SKKM", "Is Approve"];
 
   if(hasil[0] !== undefined){
     hasil.map((h: any) => {
