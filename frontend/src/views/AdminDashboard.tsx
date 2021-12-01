@@ -70,15 +70,41 @@ const AdminDashboard: React.FC = () => {
   const tempData: any = []
   const data: any = []
 
-  const approveThis = (index: number, approve: boolean, jenisSKKM: number) => {
-    let metadataURL: any = dataApprove[jenisSKKM]; 
+  const approveThis = (index: number, approve: boolean, jenisSKKM: string) => {
+    let indexURL = 0
+    if(jenisSKKM === "Ilmiah dan Penalaran"){
+      indexURL = 0
+    }
+    else if(jenisSKKM === "Bakat dan Minat"){
+      indexURL = 1
+    }
+    else if(jenisSKKM === "Organisasi dan Pengembangan Kepribadian"){
+      indexURL = 2
+    }
+    else if(jenisSKKM === "Pengabdian Masyarakat"){
+      indexURL = 3
+    }
+    let metadataURL: any = dataApprove[indexURL]; 
     
     send(index, approve, metadataURL)
   }
 
-  const rejectThis = (index: number, approve: boolean, jenisSKKM: number) => {
-    let metadataURL: any = dataApprove[jenisSKKM];  
-
+  const rejectThis = (index: number, approve: boolean, jenisSKKM: string) => {
+    let indexURL = 0
+    if(jenisSKKM === "Ilmiah dan Penalaran"){
+      indexURL = 0
+    }
+    else if(jenisSKKM === "Bakat dan Minat"){
+      indexURL = 1
+    }
+    else if(jenisSKKM === "Organisasi dan Pengembangan Kepribadian"){
+      indexURL = 2
+    }
+    else if(jenisSKKM === "Pengabdian Masyarakat"){
+      indexURL = 3
+    }
+    let metadataURL: any = dataApprove[indexURL]; 
+    
     send(index, approve, metadataURL)
   }
 
@@ -107,7 +133,20 @@ const AdminDashboard: React.FC = () => {
 
   if(hasil[0] !== undefined){
     hasil.map((h: any, index:any) => {
-      data.push([index, h[1], h[2], h[3], h[4], h[5]])
+      let jenisSKKM = '';
+      if(h[5] === "0" || h[5] === 0){
+        jenisSKKM = 'Ilmiah dan Penalaran'
+      }
+      else if(h[5] === "1" || h[5] === 1){
+        jenisSKKM = 'Bakat dan Minat'
+      }
+      else if(h[5] === "2" || h[5] === 2){
+        jenisSKKM = 'Organisasi dan Pengembangan Kepribadian'
+      }
+      else if(h[5] === "3" || h[5] === 3){
+        jenisSKKM = 'Pengabdian Masyarakat'
+      }
+      data.push([index, h[1], h[2], h[3], h[4], jenisSKKM])
     })
     console.log(data)
   }
