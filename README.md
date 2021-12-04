@@ -9,3 +9,7 @@ AnonSKKM adalah sebuah decentralized application (dApps) yang mengatur sistem SK
 2. Lakukan `npm start`
 
 3. DApps AnonSKKM dapat langsung digunakan pada `localhost:3000`
+
+4. Backend pada dApps tidak perlu dikonfigurasi lagi karena merupakan smart contract yang telah di-deploy.
+
+5. Pengguna perlu menginstall extension Metamask pada browser sebagai wallet Ethereum agar dapat terhubung dengan dApps
